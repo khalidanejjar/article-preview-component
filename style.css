@@ -1,0 +1,198 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --dark-grayish-blue: hsl(217, 19%, 35%);
+    --dark-blue:hsl(214, 17%, 51%);
+    --grayish-blue:hsl(212, 23%, 69%);
+    --light-grayish-blue:hsl(210, 46%, 95%);
+    --manrope:"Manrope", sans-serif;
+}
+
+body{
+    background-color: var(--light-grayish-blue);
+    font-family: var(--manrope);
+}
+.wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+ .card{
+    background-color:#fff;
+    max-width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);   
+    position: relative;
+ }
+ /* Card image */
+ .card__img img{
+    width: 100%;
+    display: block;
+ }
+ /* Card content */
+ .card__content{
+    padding: 1.2rem;
+ }
+ .card__title{
+    font-size: 1.1rem;
+    color: var(--dark-grayish-blue);
+    margin-bottom: 1rem;
+ }
+ .card__text{
+    font-size: 0.9rem;
+    color: var(--dark-blue);
+    font-weight: 600;
+ }
+ /* Author */
+ .card__author{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 1.2rem;
+    padding-bottom: 0;
+    
+ }
+ .card__author-img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+ }
+ .card__author-details{
+    flex: 1;
+    margin-left: 1rem;
+ }
+ .card__author-name{
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--dark-grayish-blue);
+ }
+ .card__author-date{
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--grayish-blue);
+ }
+ .card__share-icon{
+    display: block;
+    background-color: var(--light-grayish-blue);
+    padding: 0.7rem;
+    border-radius: 50%;
+ }
+ /* Share element */
+.card__social-phone{
+    background-color: var(--dark-grayish-blue);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    border-radius: 0px 0px 8px 8px;
+    bottom: 0px;
+    right: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(66px);
+    transition: opacity 0.3s ease, transform 0.3s ease ;
+    z-index: 12;
+}
+.card__social-phone.hidden{
+    opacity: 0;
+    /* Prevent interaction when hidden */
+    pointer-events: none;
+    transform: translateY(66px);
+}
+.card__social-phone.visible{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+.card__social-phone span{
+    color: var(--grayish-blue);
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-left: 1rem;
+}
+.card__social-buttons{
+    flex: 1;
+    margin-left: 1rem;
+}
+.card__social-buttons a{
+    margin-right: 1rem;
+}
+.card__icon .icon-share{
+    margin-right: 1rem;
+    background-color: hsla(210, 46%, 95%, 0.094);
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 33px;
+}
+/* Desktop layout */
+@media (min-width: 768px) {
+    .card{
+        display: flex;
+        flex-direction: row;
+        max-width: 670px;
+        overflow: visible;
+    }
+     /* Card image */
+ .card__img img{
+    width: 100%;
+    display: block;
+    min-height: 100%;
+    border-radius: 8px 0 0 8px;
+ }
+ /* Card content */
+ .card__content{
+    padding: 1.2rem 1.1rem 0rem 1.8rem;
+ }
+ .card__author{
+    align-items: center;
+    padding: 1rem;
+ }
+ .card__social-phone{
+    background-color: var(--dark-grayish-blue);
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    border-radius: 8px;
+    bottom: 70px;
+    right: -37px;
+    width: fit-content;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 0.3s ease, transform 0.3s ease ;
+    z-index: 120;
+}
+/* Creating arrow at the bottom of social element */
+.card__social-phone::after{
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--dark-grayish-blue) transparent transparent;
+    left: 50%;
+    transform: translateY(19px);
+    bottom: 0px;
+}
+.card__social-phone span{
+    margin-left: 0;
+    font-size: 10px;
+}
+.card__icon .icon-share {
+    display: none;
+}
+.card__icon img{
+    width: 14px;
+}
+ 
+}
